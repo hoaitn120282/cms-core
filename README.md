@@ -1,1 +1,1 @@
-# cms-core
+# serayucms
