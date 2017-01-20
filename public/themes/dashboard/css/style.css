@@ -4447,3 +4447,18 @@ ul.notifications {
   margin-top: 20px;
   padding: 20px;
 }
+
+/**
+ * Form theme
+ */
+form#install_theme {
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+form#install_theme .form-group input,
+form#install_theme .form-group button {
+  display: inline-block;
+  height: 30px;
+  margin: 0px;
+}
