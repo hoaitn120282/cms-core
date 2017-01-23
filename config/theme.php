@@ -1,7 +1,7 @@
 <?php
 $config = [];
 
-$config['active'] ='smallpine1';
+$config['active'] ='smallpine';
 $config['driver'] ='database';
 
 return $config;
