@@ -298,6 +298,12 @@ class Theme
 
     }
 
+    /**
+     * Generate theme config
+     *
+     * @param array $config
+     * @return string $str
+     */
     protected function generateThemeConfig($config)
     {
         $themeFile = config_path("theme.php");
