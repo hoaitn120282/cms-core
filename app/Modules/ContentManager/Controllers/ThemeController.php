@@ -40,12 +40,18 @@ class ThemeController extends Controller
         return redirect(Admin::StrURL('contentManager/theme/' . $id))->with('success', 'Theme Option update success');;
     }
 
-    public function active($id)
+    public function active($id, Request $request)
     {
         Themes::where('status', 1)->update(['status' => 0]);
         $activeTheme = Themes::find($id);
         $activeTheme->status = 1;
         $activeTheme->save();
+        Theme::setActive($activeTheme);
+        $request->session()->flash('response', [
+            'success' => true,
+            'message' => array("Theme {$activeTheme->name} has been active.")
+        ]);
+
         return redirect(Admin::StrURL('contentManager/theme'));
     }
 
