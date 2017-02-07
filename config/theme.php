@@ -2,6 +2,6 @@
 $config = [];
 
 $config['active'] ='smallpine';
-$config['driver'] ='database';
+$config['driver'] ='file';
 
 return $config;
