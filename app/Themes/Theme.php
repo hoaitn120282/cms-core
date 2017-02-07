@@ -37,23 +37,6 @@ class Theme
             "asset" => app_path('Themes/tmp/asset')
         ];
         // check theme active in DB
-        /*$themes = Themes::where('status', true);
-        if ($themes->count() > 0) {
-            $active = $themes->first();
-            $this->config = array(
-                'active' => $active->name,
-                'driver' => 'database',
-            );
-            $this->activeName = $active->name;
-            $this->activeID = $active->id;
-        } else {
-            $this->config = config("theme");
-            if ($this->config['driver'] == "file") {
-                $this->activeName = $this->config['active'];
-                $this->activeID = 1;
-            }
-        }*/
-
         if ($this->config['driver'] == "file") {
             $this->activeName = $this->config['active'];
             $this->activeID = 1;
@@ -71,7 +54,7 @@ class Theme
             $this->activeName = $model->name;
             $this->generateThemeConfig([
                 'name' => $model->name,
-                'driver' => 'database'
+                'driver' => 'file'
             ]);
         }
 
