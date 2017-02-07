@@ -63,16 +63,19 @@ class WidgetController extends Controller
     private function listDirWidget($pathWidget){
         $res = [];
         $path = app_path('Widgets/'.$pathWidget);
-        if ($handle = opendir($path)) {
-            while (false !== ($entry = readdir($handle))) {
-                if ($entry != "." && $entry != "..") {
-                    $tmp = 'App\\Widgets\\'.$pathWidget.'\\'.basename($entry, '.php');
-                    $class = new $tmp(); 
-                    $res[] = $class;
+        if (is_dir($path)){
+            if ($handle = opendir($path)) {
+                while (false !== ($entry = readdir($handle))) {
+                    if ($entry != "." && $entry != "..") {
+                        $tmp = 'App\\Widgets\\'.$pathWidget.'\\'.basename($entry, '.php');
+                        $class = new $tmp();
+                        $res[] = $class;
+                    }
                 }
+                closedir($handle);
             }
-            closedir($handle);
         }
+
         return $res;
     }
 }
