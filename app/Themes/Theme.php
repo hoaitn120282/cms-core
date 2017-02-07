@@ -36,6 +36,7 @@ class Theme
             "widgetView" => app_path('Themes/tmp/widgetView'),
             "asset" => app_path('Themes/tmp/asset')
         ];
+        $this->config = config('theme');
         // check theme active in DB
         if ($this->config['driver'] == "file") {
             $this->activeName = $this->config['active'];
