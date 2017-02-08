@@ -1,5 +1,5 @@
 @include(Theme::active().'.header')
-@include(Theme::active().'.front-style1')
+@include(Theme::active().'.'.Theme::option('layouts','layout_style'))
 @include(Theme::active().'.footer')
 
     
